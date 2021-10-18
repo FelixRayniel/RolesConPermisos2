@@ -1,0 +1,100 @@
+﻿<Window x:Class="RolesConPermisos2.UI.Registros.rRoles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RolesConPermisos2.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Roles" Height="450" Width="800">
+    <Grid>
+        
+        <StackPanel Orientation="Horizontal" Margin="242,10,248,347" Grid.ColumnSpan="2">
+            <Label Content="Rol ID" Height="42"/>
+            <TextBox x:Name="RolIDTextBox" Text="{Binding RolID}" Width="102" Height="20" Margin="0,-15,0,0"/>
+            <Button x:Name="BuscarButton" Height="33" Width="53" HorizontalAlignment="Right" Margin="10,0,0,15" Click="BuscarButton_Click">
+                <Image Source="/Resources/zoom1.png"/>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,31,0,307" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" Height="33">
+                <Label x:Name="FechaLabel" Content="Fecha: "/>
+                <DatePicker x:Name="Fecha" Height="25" Width="259" HorizontalAlignment="Left" SelectedDate="{Binding Fecha}" Margin="5,0,0,0"/>
+            </StackPanel>
+            <Label Content="Descripcion" Height="30"/>
+            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Width="285" Height="20"/>
+            <CheckBox x:Name="Activo" Content="Activo" IsChecked="{Binding esActivo}" Height="15" Width="80" Margin="15,0,0,0"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="76,106,82,22" Background="White" Grid.ColumnSpan="2" >
+
+
+            <StackPanel Orientation="Horizontal"  Height="44" VerticalAlignment="Top" >
+                <Label Content="Permisos" Height="32" />
+                <ComboBox x:Name="PermisosComboBox" Width="196" Height="22"/>
+                <StackPanel Orientation="Horizontal" Width="332" Height="37" Margin="15,0,0,0">
+                    <Button x:Name="AgregarButton" Height="31" Width="137" Click="AgregarButton_Click" >
+                        <StackPanel Orientation="Horizontal" Width="119" >
+                            <Image Source="/Resources/SaveAdd.png"/>
+                            <Label Content="Agregar Campo" Width="97" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="DeleteButton" Height="30" Width="137" Click="DeleteButton_Click" Margin="20,0,0,0" >
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="/Resources/SaveAdd.png"/>
+                            <Label Content="Eliminar Campo" Width="98" />
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+
+
+            </StackPanel>
+            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding RolesDetalle}"  AutoGenerateColumns="False" Width="582" Height="168" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Permiso ID" Binding="{Binding PermisoID}"/>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding  Nombre }"/>
+                    <DataGridCheckBoxColumn Header="Es Asignado" Binding="{Binding EsAsignado, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridCheckBoxColumn.ElementStyle>
+                            <Style TargetType="CheckBox"/>
+                        </DataGridCheckBoxColumn.ElementStyle>
+                    </DataGridCheckBoxColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Permisos Asignado: "/>
+                <TextBox x:Name="CantidadPermisosTextBox" Width="60" Height="20" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="292" Height="44">
+                <Button x:Name="NuevoButton" Height="34" Width="93" Click="NuevoButton_Click" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Resources/SaveAdd.png"/>
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="GuardarButton" Height="34" Width="93" Margin="5,0,0,0" Click="GuardarButton_Click" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Resources/new.png"/>
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="EliminarButton" Height="34" Width="93" Margin="5,0,0,0" Click="EliminarButton_Click" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Resources/delete.png"/>
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+
+
+    </Grid>
+</Window>
