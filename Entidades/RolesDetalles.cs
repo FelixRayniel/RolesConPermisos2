@@ -13,6 +13,7 @@ namespace RolesConPermisos2.Entidades
         public int ID { get; set; }
         public int RolID { get; set; }
         public int PermisoID { get; set; }
+        public string Nombre { get; set; }
         public bool esAsignado { get; set; }
 
         public RolesDetalles()
@@ -23,11 +24,12 @@ namespace RolesConPermisos2.Entidades
             esAsignado = false;
         }
 
-        public RolesDetalles(int RolId, int permisoId, bool esasignado)
+        public RolesDetalles(int RolId, int permisoId, string nombre, bool esasignado)
         {
             ID = 0;
             RolID = RolId;
             PermisoID = permisoId;
+            Nombre = nombre;
             esAsignado = esasignado;
         }
 
