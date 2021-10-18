@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="Menu Principal" Height="450" Width="800">
     <Grid>
-        
+        <Button Margin="162,142,479,217" Click="Button_Click">
+            <Label Content="Registro de Roles"></Label>
+        </Button>
+        <Button Margin="376,142,265,217" Click="Button_Click1">
+            <Label Content="Registros de Permisos"/>
+        </Button>
 
     </Grid>
 </Window>

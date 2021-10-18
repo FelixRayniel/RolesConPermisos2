@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RolesConPermisos2.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,18 @@ namespace RolesConPermisos2
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            rRoles rr = new rRoles();
+            rr.Show();
+        }
+
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            rPermisos rr = new rPermisos();
+            rr.Show();
+        }
+
     }
 }

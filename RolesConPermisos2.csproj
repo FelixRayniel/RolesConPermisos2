@@ -7,11 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
+    <None Remove="Resources\Consulta.png" />
+    <None Remove="Resources\Delete.png" />
+    <None Remove="Resources\Edit.png" />
+    <None Remove="Resources\New.png" />
+    <None Remove="Resources\Roles.png" />
+    <None Remove="Resources\SaveAdd.png" />
+    <None Remove="Resources\user.ico" />
+    <None Remove="Resources\User1.png" />
+    <None Remove="Resources\Users Add 48x48.png" />
+    <None Remove="Resources\user_add.ico" />
+    <None Remove="Resources\user_delete.ico" />
+    <None Remove="Resources\user_edit.ico" />
+    <None Remove="Resources\zoom.ico" />
+    <None Remove="Resources\zoom1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DATA\" />
-    <Folder Include="Resources\" />
-    <Folder Include="UI\Registros\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +33,29 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Consulta.png" />
+    <Resource Include="Resources\Delete.png" />
+    <Resource Include="Resources\Edit.png" />
+    <Resource Include="Resources\New.png" />
+    <Resource Include="Resources\Roles.png" />
+    <Resource Include="Resources\SaveAdd.png" />
+    <Resource Include="Resources\user.ico" />
+    <Resource Include="Resources\User1.png" />
+    <Resource Include="Resources\Users Add 48x48.png" />
+    <Resource Include="Resources\user_add.ico" />
+    <Resource Include="Resources\user_delete.ico" />
+    <Resource Include="Resources\user_edit.ico" />
+    <Resource Include="Resources\zoom.ico" />
+    <Resource Include="Resources\zoom1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DATA\BDRoles.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
