@@ -9,7 +9,7 @@ using RolesConPermisos2.DAL;
 namespace RolesConPermisos2.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211018061201_Migracion_Inicial")]
+    [Migration("20211018154919_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -39,6 +39,13 @@ namespace RolesConPermisos2.BLL
 
             try
             {
+                foreach (var item in roles.RolesDetalle)
+                {
+                    var permiso = contexto.Permisos.Find(item.PermisoID);
+
+                    permiso.VecesAsignado += 1;
+                }
+
                 //Agregar la entidad que se desea insertar al contexto
                 contexto.Roles.Add(roles);
                 paso = contexto.SaveChanges() > 0;
@@ -63,14 +70,23 @@ namespace RolesConPermisos2.BLL
         public static bool Modificar(Roles roles)
         {
             bool paso = false;
+            int total = 0;
             Contexto contexto = new Contexto();
 
             try
             {
+                foreach (var item in roles.RolesDetalle)
+                {
+                    total += contexto.Permisos.Find(item.PermisoID).VecesAsignado;
+                }
+
+
                 contexto.Database.ExecuteSqlRaw($"'Delete FROM RolesDetalles Where RolID={roles.RolID}");
 
                 foreach (var item in roles.RolesDetalle)
                 {
+                    var permiso = contexto.Permisos.Find(item.PermisoID);
+                    permiso.VecesAsignado += 1;
                     contexto.Entry(item).State = EntityState.Added;
                 }
 
@@ -97,8 +113,16 @@ namespace RolesConPermisos2.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+            var role = RolesBLL.Buscar(id);
             try
             {
+                foreach (var item in role.RolesDetalle)
+                {
+                    var permiso = contexto.Permisos.Find(item.PermisoID);
+
+                    permiso.VecesAsignado -= 1;
+                }
+
                 var roles = contexto.Roles.Find(id);
                 contexto.Entry(roles).State = EntityState.Deleted;
                 paso = (contexto.SaveChanges() > 0);
@@ -235,6 +259,21 @@ namespace RolesConPermisos2.BLL
                 contexto.Dispose();
             }
             return lista;
+        }
+
+        public static int Total(Roles rol)
+        {
+            Contexto contexto = new Contexto();
+            int total = 0;
+
+            foreach (var item in rol.RolesDetalle)
+            {
+
+                var permiso = contexto.Permisos.Find(item.PermisoID);
+
+                total += permiso.VecesAsignado;
+            }
+            return total;
         }
     }
 }

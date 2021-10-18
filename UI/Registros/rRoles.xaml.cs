@@ -116,6 +116,9 @@ namespace RolesConPermisos2.UI.Registros
 
             rol.RolesDetalle.Add(new RolesDetalles(rol.RolID, (int)PermisosComboBox.SelectedValue, PermisosComboBox.Text.ToString(),  Activo.IsEnabled));
             Actualizar();
+            int TotalPermisos = RolesBLL.Total(rol);
+            string TotalPermiso = TotalPermisos.ToString();
+            TotalTextBlock.Text = TotalPermiso;
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)

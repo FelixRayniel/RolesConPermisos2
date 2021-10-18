@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RolesConPermisos2.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Roles" Height="450" Width="800">
-    <Grid>
-        
+        Title="Registro de Roles" Height="504" Width="800">
+    <Grid Margin="0,0,0,37">
+
         <StackPanel Orientation="Horizontal" Margin="242,10,248,347" Grid.ColumnSpan="2">
             <Label Content="Rol ID" Height="42"/>
             <TextBox x:Name="RolIDTextBox" Text="{Binding RolID}" Width="102" Height="20" Margin="0,-15,0,0"/>
@@ -27,7 +27,7 @@
 
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Margin="76,106,82,22" Background="White" Grid.ColumnSpan="2" >
+        <StackPanel Orientation="Vertical" Margin="76,106,82,0" Background="White" >
 
 
             <StackPanel Orientation="Horizontal"  Height="44" VerticalAlignment="Top" >
@@ -63,9 +63,10 @@
                     </DataGridCheckBoxColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Permisos Asignado: "/>
-                <TextBox x:Name="CantidadPermisosTextBox" Width="60" Height="20" IsEnabled="False" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Label Content="Permisos Agregados:" Margin="0,20"/>
+                <TextBlock x:Name="TotalTextBlock" Margin="5,26"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="292" Height="44">
                 <Button x:Name="NuevoButton" Height="34" Width="93" Click="NuevoButton_Click" >
